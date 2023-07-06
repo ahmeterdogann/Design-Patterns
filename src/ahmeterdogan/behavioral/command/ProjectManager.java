@@ -2,19 +2,21 @@ package ahmeterdogan.behavioral.command;
 
 import java.util.ArrayList;
 
+//Invoker class
 public class ProjectManager {
-    private ArrayList<IWorker> workers = new ArrayList<>();
+    private ArrayList<IWorker> actions = new ArrayList<>();
     private Project project;
 
     public ProjectManager(Project project) {
         this.project = project;
     }
 
-    public void addWorker(IWorker worker) {
-        workers.add(worker);
+    public void manage(IWorker worker) {
+        actions.add(worker);
+        worker.work();
     }
 
-    public void manage() {
-        workers.forEach(IWorker::work);
+    public void listActions() {
+        actions.forEach((a) -> System.out.println(a.getClass()));
     }
 }

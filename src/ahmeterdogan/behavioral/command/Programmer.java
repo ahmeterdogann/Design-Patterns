@@ -9,6 +9,7 @@ public class Programmer implements IWorker{
 
     @Override
     public void work() {
-        project.developing();
+        System.out.println("Proje kodlanıyor");
+        project.setState(ProjectState.CODING);
     }
 }

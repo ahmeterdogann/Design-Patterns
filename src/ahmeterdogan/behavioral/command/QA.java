@@ -10,6 +10,7 @@ public class QA implements IWorker {
 
     @Override
     public void work() {
-        project.testing();
+        System.out.println("Proje test ediliyor");
+        project.setState(ProjectState.TESTING);
     }
 }

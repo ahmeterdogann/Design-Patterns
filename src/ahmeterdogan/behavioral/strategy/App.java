@@ -1,17 +1,24 @@
 package ahmeterdogan.behavioral.strategy;
-
 public class App {
     public static void main(String[] args) {
-        Coach coach = new Coach();
+        Agile agile = new Agile();
+        Analyst analyst = new Analyst();
+        analyst.setStrategy(agile);
+        analyst.work();
+        Programmer programmer = new Programmer();
+        programmer.setStrategy(agile);
+        programmer.work();
+        QA tester = new QA();
+        tester.setStrategy(agile);
+        tester.work();
+        DevOps devOps = new DevOps();
+        devOps.setStrategy(agile);
+        devOps.work();
 
-        /*tüm stratejileri bir interface altında topladık ve coach sınıfının ilgili metoduna parametre olarak geçtik
-          bu sayede coach sınıfının makeTacticalChange nasıl çalışacağı bilgisini dışardan aldı poliformizim kullanarak
-          if else kontrollerinden kurtulduk. makeTacticalChange metodun çalışma yapısı runtime'da değişebilir hale geldi
-         */
+        System.out.println();
 
-        coach.makeTacticalChange(new Defence());
-        coach.makeTacticalChange(new UltraDefence());
-        coach.makeTacticalChange(new Offensive());
-        coach.makeTacticalChange(new UltraOffensive());
+        Waterfall waterfall = new Waterfall();
+        programmer.setStrategy(waterfall);
+        programmer.work();
     }
 }

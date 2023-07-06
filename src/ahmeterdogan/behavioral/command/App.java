@@ -5,12 +5,24 @@ public class App {
         Project project = new Project();
         ProjectManager manager = new ProjectManager(project);
 
-        manager.addWorker(new Analyst(project));
-        manager.addWorker(new Programmer(project));
-        manager.addWorker(new QA(project));
-        manager.addWorker(new DevOps(project));
+        Analyst analyst = new Analyst(project);
+        manager.manage(analyst);
+        System.out.println(project.getState());
 
-        manager.manage();
+        Programmer programmer = new Programmer(project);
+        manager.manage(programmer);
+        System.out.println(project.getState());
+
+        QA tester = new QA(project);
+        manager.manage(tester);
+        System.out.println(project.getState());
+
+        DevOps devOps = new DevOps(project);
+        manager.manage(devOps);
+        System.out.println(project.getState());
+
+        manager.listActions();
+
 
     }
 }

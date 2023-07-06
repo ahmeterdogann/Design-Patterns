@@ -9,6 +9,7 @@ public class DevOps implements IWorker{
 
     @Override
     public void work() {
-        project.deploy();
+        System.out.println("Proje deploy ediliyor");
+        project.setState(ProjectState.DEPLOYING);
     }
 }

@@ -1,4 +1,4 @@
-package ahmeterdogan.behavioral.command;
+package ahmeterdogan.behavioral.observer;
 
 public class Project {
     private ProjectState state;
